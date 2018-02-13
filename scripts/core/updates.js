@@ -99,12 +99,12 @@
         $.inidb.set('command', 'age', '(age)');
 
         $.consoleLn('Installiere alte Aktualisierungen...');
-        versions = ['installedv2', 'installedv2.0.5', 'installedv2.0.6', 'installedv2.0.7', 'installedv2.0.7.2', 
-            'installedv2.0.8', 'installedv2.0.9', 'installedv2.1.0', 'installedv2.1.1', 'installedv2.2.1', 'installedv2.3s', 
-            'installedv2.3.3ss', 'installedv2.3.5ss', 'installedv2.3.5.1', 'installedv2.3.5.2', 'installedv2.3.5.3', 'installed2.3.6', 
-            'installed2.3.6ss', 'installed2.3.6b', 'installedv2.3.7', 'installedv2.3.7b', 'installedv2.3.9', 'installedv2.3.9.1'];
+        versions = ['installedv2', 'installedv2.0.5', 'installedv2.0.6', 'installedv2.0.7', 'installedv2.0.7.2',
+            'installedv2.0.8', 'installedv2.0.9', 'installedv2.1.0', 'installedv2.1.1', 'installedv2.2.1', 'installedv2.3s',
+            'installedv2.3.3ss', 'installedv2.3.5ss', 'installedv2.3.5.1', 'installedv2.3.5.2', 'installedv2.3.5.3', 'installed2.3.6',
+            'installed2.3.6ss', 'installed2.3.6b', 'installedv2.3.7', 'installedv2.3.7b', 'installedv2.3.9', 'installedv2.3.9.1', 'installedv2.3.9.1b',
             'installedv2.4.0'
-        
+        ];
         for (i in versions) {
             $.inidb.set('updates', versions[i], 'true');
         }
@@ -472,10 +472,10 @@
             $.inidb.del('whiteList', keys[i]);
         }
 
-        $.consoleLn('Aktuslisiere Host Einstellungen...');
+        $.consoleLn('Aktualisiere Host Einstellungen...');
         $.inidb.set('settings', 'hostToggle', true);
 
-        $.consoleLn('Deaktiviere standard-Discord-Module...');
+        $.consoleLn('Deaktiviere Standard-Discord-Module...');
         modules = [
             './discord/handlers/bitsHandler.js',
             './discord/handlers/followHandler.js',

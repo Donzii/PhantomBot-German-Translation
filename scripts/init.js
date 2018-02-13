@@ -368,9 +368,6 @@
 
         consoleLn('');
 
-        // Call the initReady event.
-        callHook('initReady', null, false);
-
         if ($.isNightly) {
             consoleLn('PhantomBot Nightly Build - Es wird kein Support bereitgestellt!');
             consoleLn('Bitte melde Fehler, einschließlich des Datums des Nightly Builds und die Repo Version, weiter an:');
@@ -417,11 +414,10 @@
             if (event.getUser().equalsIgnoreCase($.botName) && event.getMode().equalsIgnoreCase('O')) {
                 if (event.getAdd().toString().equals('true')) {
                     if (isReady === false) {
-                        if ($.inidb.exists('settings', 'connectedMsg')) {
-                            $.say($.inidb.get('settings', 'connectedMsg'));
-                        } else {
-                            consoleLn($.botName + ' ist bereit!'); 
-                        }
+                        // Bot is now ready.
+                        consoleLn($.botName + ' ist bereit!');
+                        // Call the initReady event.
+                        callHook('initReady', null, false);
                     }
                     isReady = true;
                 }
@@ -441,7 +437,7 @@
             // Check if the command exists or if the module is disabled.
             if (!$.commandExists(command) || !isModuleEnabled($.getCommandScript(command))) {
                 return;
-            } else 
+            } else
 
             // Check if the command has an alias.
             if ($.aliasExists(command)) {
@@ -716,6 +712,13 @@
          */
         $api.on($script, 'yTPlayerConnect', function(event) {
             callHook('yTPlayerConnect', event, false);
+        });
+
+        /*
+         * @event yTPlayerLoadPlaylistEvent
+         */
+        $api.on($script, 'yTPlayerLoadPlaylist', function(event) {
+            callHook('yTPlayerLoadPlaylist', event, false);
         });
 
         /*

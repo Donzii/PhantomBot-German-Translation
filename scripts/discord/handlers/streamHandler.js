@@ -136,7 +136,7 @@
                     .withFooterText('Twitch')
                     .withFooterIcon($.twitchcache.getLogoLink())
                     .withImage($.twitchcache.getPreviewLink() + '#' + $.randRange(1, 99999)).build());
-                
+
                 $.setIniDbNumber('discordSettings', 'lastOnlineEvent', $.systemTime());
             }
         }, 6e4);
